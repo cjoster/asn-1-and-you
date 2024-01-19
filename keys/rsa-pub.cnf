@@ -1,0 +1,13 @@
+# This is the ASN.1 config file for a 512 bit (small so that it's easy to work with) RSA public key in
+# traditional format (PKCS#1). This file also shows that you can mix decimal and hexadecimal conventions.
+# Addionally, the labels for each primitive are completely arbitrary. The only rule is that they be unique
+# to any given section.
+#
+# To generate the public key, use the following command:
+#
+#   openssl asn1parse -genconf rsa-pub.cnf -noout -out - | openssl rsa -inform DER -pubin
+asn1           = SEQUENCE:rsaPublicKey
+
+[ rsaPublicKey ]
+n              = INTEGER:12059296502020843272958384618820591409366862078637942110427313763215210116711908425062631723459886189061440555925011993545751739114893397484098888676081343
+publicExponent = INTEGER:0x010001
