@@ -1,0 +1,28 @@
+# This is the ASN.1 config file for a 512 bit (small so that it's easy to work with) RSA private key in
+# PKCS#8 format.
+#
+# To generate the private key, use the following command:
+#
+#   openssl asn1parse -genconf rsa.cnf -noout -out - | openssl rsa -inform DER -traditional
+
+asn1                = SEQUENCE:privateKey
+
+[ privateKey ]
+version             = INTEGER:0
+privateKeyAlgorithm = SEQUENCE:privateKeyAlgorithm
+privateKey          = OCTWRAP,SEQUENCE:rsaPrivateKey
+
+[ privateKeyAlgorithm ]
+algorithm           = OID:rsaEncryption
+parameters          = NULL
+
+[ rsaPrivateKey ]
+version             = INTEGER:0
+modulous            = INTEGER:0xE6409D0AA3B3B94FEA1547AD950335ABA3F1364468A779580B4FF6E72538B53C21482779E9AD5D06D95DFD1D4F219C2749B4A992766E97FF5FA4F9E32BE6FEBF
+publicExponent      = INTEGER:0x010001
+privateExponent     = INTEGER:0x60DD9FF3A0E8F43605818C551F52695ADB2E9828F16A3B6769E2EB3954F46571A92CA4FDA4226F850D81A6FF57EF865F4BB0AD61EE9AFCF3E15C71073E53BAE1
+prime1              = INTEGER:0xF8968B6EFF8AA66D2B2F4D5906AD0655C96A5CE0990D63C307ED3A85532AB1B1
+prime2              = INTEGER:0xED1E1D28A9B6F8D39768A15D94B97F1BCF320711BE35D65D48889A760F14E36F
+exponent1           = INTEGER:0x31362C5847027DBBF2E6A45B517503620C43A02B5E6146349FE718C4B81825A1
+exponent2           = INTEGER:0x7448EC6BE0AF46E01DC4C63E2A8DBDF4596C636324312AEB9C82C19D5C501629
+coefficient         = INTEGER:0x9097D6C30246D00AD2342B29EE085BDD3BA68448A7E48575883B4F97480D5AD8

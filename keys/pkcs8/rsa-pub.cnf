@@ -1,0 +1,19 @@
+# This is the ASN.1 config file for a 512 bit (small so that it's easy to work with) RSA public key in
+# #1).
+#
+# To generate the public key, use the following command:
+#
+#   openssl asn1parse -genconf rsa-pub.cnf -noout -out - | openssl rsa -inform DER -pubin
+asn1                = SEQUENCE:publicKey
+
+[ publicKey ]
+algorithmIdentifier = SEQUENCE:algorithmIdentifier
+publicKey           = BITWRAP,SEQUENCE:rsaPublicKey
+
+[ algorithmIdentifier ]
+algorithm           = OID:rsaEncryption
+parameters          = NULL
+
+[ rsaPublicKey ]
+n                   = INTEGER:0xE6409D0AA3B3B94FEA1547AD950335ABA3F1364468A779580B4FF6E72538B53C21482779E9AD5D06D95DFD1D4F219C2749B4A992766E97FF5FA4F9E32BE6FEBF
+publicExponent      = INTEGER:0x010001
