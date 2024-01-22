@@ -1,0 +1,10 @@
+asn1 = SEQUENCE:PrivateKeyInfo
+
+[ PrivateKeyInfo ]
+version = INTEGER:0
+privateKeyAlgorithm = SEQUENCE:AlgorithmIdentifier
+privateKey = OCTWRAP,FORMAT:HEX,OCTETSTRING:3FD9E18ABAFBE62F8E241FDB6998BE2B96783955F0AC4009E40A1B2DD39C1ADC
+
+[ AlgorithmIdentifier ]
+algorithm = OID:ED25519
+
